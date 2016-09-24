@@ -117,7 +117,7 @@ const struct route_config voice_bt_sco = {
 const struct route_config voice_bt_sco_wb = {
     "voice-bt-sco-wb",
     "device-sco",
-    "voice-bt-sco-headset-mic-wb",
+    "voice-bt-sco-headset-mic-incall-wb",
     "device-sco-headset-mic",
 };
 
@@ -131,14 +131,14 @@ const struct route_config voice_bt_sco_headset_out = {
 const struct route_config voice_bt_sco_headset_out_wb = {
     "voice-bt-sco-headset-out-wb",
     "device-sco-headset-out",
-    "voice-bt-sco-headset-mic-wb",
+    "voice-bt-sco-headset-mic-incall-wb",
     "device-sco-headset-mic",
 };
 
 const struct route_config media_speaker = {
     "media-speaker",
     "device-speaker",
-    "media-builtin-mic",
+    "media-second-mic",
     "device-builtin-mic",
 };
 

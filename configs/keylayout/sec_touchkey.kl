@@ -10,3 +10,6 @@
 #
 key 254 APP_SWITCH    VIRTUAL
 key 158 BACK          VIRTUAL
+key 142 SLEEP         VIRTUAL
+key 143 WAKEUP        VIRTUAL
+key 152 POWER         VIRTUAL

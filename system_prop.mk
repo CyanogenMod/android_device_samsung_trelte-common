@@ -1,11 +1,20 @@
 # Audio
+
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
-    audio_hal.force_voice_config=wide
+    audio_hal.force_voice_config=wide \
+    use.voice.path.for.pcm.voip=true \
+    use.dedicated.device.for.voip=true \
+    audio.offload.disable=1 \
+    mm.enable.smoothstreaming=true \
+    media.aac_51_output_enabled=true
+    #use.dedicated.device.for.voip=false \
+    
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path="/efs/bluetooth/bt_addr"
+    ro.bt.bdaddr_path="/efs/bluetooth/bt_addr" \
+    media.stagefright.use-awesome=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -28,6 +37,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bq.gpu_to_cpu_unsupported=1 \
     ro.opengles.version=196609 \
     ro.sf.lcd_density=560
+    debug.hwc.force_gpu=1
 
 # Hwc - not used on cm/aosp
 PRODUCT_PROPERTY_OVERRIDES += \

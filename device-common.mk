@@ -2,8 +2,10 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/trelte-common/overlay
 
 LOCAL_PATH := device/samsung/trelte-common
 
+###########################################################
+### RAMDISK
+###########################################################
 
-# Ramdisk
 PRODUCT_PACKAGES += \
     fstab.universal5433 \
     init.power.rc \
@@ -13,13 +15,17 @@ PRODUCT_PACKAGES += \
     init.universal5433.usb.rc \
     ueventd.universal5433.rc
 
-# Permissions
+###########################################################
+### PERMISSONS
+###########################################################
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
@@ -27,6 +33,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.heartrate.xml:system/etc/permissions/android.hardware.sensor.heartrate.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
@@ -43,7 +50,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Display
+###########################################################
+### DISPLAY
+###########################################################
+
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
@@ -58,11 +68,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstlport
 
-# Hardware/Samsung/AdvancedDisplay (MDNIE)
-PRODUCT_PACKAGES += \
-    AdvancedDisplay
+# hardware/samsung/AdvancedDisplay (MDNIE)
+#PRODUCT_PACKAGES += \
+#    AdvancedDisplay
 
-# Radio
+###########################################################
+### RADIO
+###########################################################
+
 PRODUCT_PACKAGES += \
     libxml2 \
     libprotobuf-cpp-full
@@ -72,8 +85,10 @@ PRODUCT_PACKAGES += \
     libsecril-client-sap \
     modemloader
 
+###########################################################
+### WIFI
+###########################################################
 
-# Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
@@ -85,15 +100,14 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant
 
-# hardware/broadcom/wlan/bcmdhd/config/Android.mk
-PRODUCT_PACKAGES += \
-    dhcpcd.conf
-
 # external/wpa_supplicant_8/wpa_supplicant/wpa_supplicant_conf.mk
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
-# Nfc
+###########################################################
+### NFC
+###########################################################
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-sec-hal.conf:system/etc/libnfc-sec-hal.conf \
     $(LOCAL_PATH)/configs/nfc/libnfc-sec.conf:system/etc/libnfc-brcm.conf \
@@ -104,7 +118,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
-# Audio
+###########################################################
+### AUDIO
+###########################################################
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
@@ -115,7 +132,10 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.primary.universal5433
 
-# OMX/Media
+###########################################################
+### OMX/MEDIA
+###########################################################
+
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
@@ -123,57 +143,104 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml
 
-# Power
+###########################################################
+### POWER
+###########################################################
+
 PRODUCT_PACKAGES += \
     power.universal5433
 
-# Lights
+###########################################################
+### LIGHTS
+###########################################################
+
 PRODUCT_PACKAGES += \
     lights.universal5433
 
-# Gps
+###########################################################
+### GPS
+###########################################################
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
 
+###########################################################
+### CAMERA
+###########################################################
 
-# Camera
 PRODUCT_PACKAGES += \
     camera.universal5433
 
-PRODUCT_PACKAGES += \
-    Snap
+###- PRODUCT_PACKAGES += \
+    ###- Snap
 
-# Touchscreen
+###########################################################
+### TOUCHSCREEN
+###########################################################
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/gpio_keys_8.kl:/system/usr/keylayout/gpio_keys_8.kl \
     $(LOCAL_PATH)/configs/keylayout/sec_touchkey.kl:/system/usr/keylayout/sec_touchkey.kl
 
-# Stylus
+
+###########################################################
+### FINGERPRINT
+###########################################################
+
+# Fingerprint
+#PRODUCT_PACKAGES += \
+#    fingerprintd \
+#    fingerprint.exynos5 \
+#    ValidityService
+
+
+###########################################################
+### STYLUS
+###########################################################
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/ft5x06_ts.idc:/system/usr/idc/ft5x06_ts.idc \
     $(LOCAL_PATH)/configs/idc/sec_e-pen.idc:/system/usr/idc/sec_e-pen.idc
 
-# Offmode charger
-# Use cm images if available, aosp ones otherwise
+###########################################################
+### CHARGER
+###########################################################
+
 PRODUCT_PACKAGES += \
     charger_res_images \
     cm_charger_res_images
 
-# Packages
+###########################################################
+### PACKAGES
+###########################################################
+
 PRODUCT_PACKAGES += \
     SamsungServiceMode
 
-# Default props
+
+###########################################################
+### DOZE
+###########################################################
+#PRODUCT_PACKAGES += \
+#    DeviceSettings
+
+###########################################################
+### DEFAULT PROPS
+###########################################################
+
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.debug_level=0x4948
 
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-# Call Samsung LSI board support package
+# call broadcom configs
+#$(call inherit-product, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
+
+# call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
 $(call inherit-product, hardware/samsung_slsi-cm/exynos5433/exynos5433.mk)
 
-# Call the proprietary setup
-$(call inherit-product-if-exists, vendor/samsung/trelte-common/trelte-common-vendor.mk)
+# call the proprietary setup
+$(call inherit-product, vendor/samsung/trelte-common/trelte-common-vendor.mk)
